@@ -16,7 +16,7 @@ use Rebing\GraphQL\Support\SelectFields;
 class UserQuery extends Query
 {
     protected $attributes = [
-        'name' => 'users',
+        'name' => 'user',
         'description' => 'A query',
     ];
 
@@ -29,16 +29,19 @@ class UserQuery extends Query
     {
         return [
             'id' => [
-                'name' => 'id', 
                 'type' => Type::int(),
             ],
             'name' => [
-                'name' => 'name', 
                 'type' => Type::string(),
             ],
             'email' => [
-                'name' => 'email', 
                 'type' => Type::string(),
+            ],
+            'phoneNumber' => [
+                'type' => Type::string(),
+            ],
+            'isActive' => [
+                'type' => Type::boolean(),
             ],
         ];
     }
@@ -53,6 +56,10 @@ class UserQuery extends Query
 
         if (isset($args['email'])) {
             $query->where('email' , $args['email'])->get();
+        }
+
+        if (isset($args['isActive'])) {
+            $query->where('is_active' , $args['isActive'])->get();
         }
 
         return $query->get();

@@ -36,6 +36,7 @@ class UserAuthController extends Controller
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
+                'is_active' => true
             ]);
 
             $client = Client::where('password_client', 1)->first();
