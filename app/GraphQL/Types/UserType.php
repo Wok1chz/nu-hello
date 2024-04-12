@@ -21,18 +21,23 @@ class UserType extends GraphQLType
         return [
             'id' => [
                 'type' => Type::int(),
-                'description' => 'The id of the user',
                 'alias' => 'id'
             ],
             'name' => [
-                'name' => 'name', 
                 'type' => Type::string(),
                 'alias' => 'name'
             ],
             'email' => [
-                'name' => 'email', 
                 'type' => Type::string(),
                 'alias' => 'email'
+            ],
+            'phoneNumber' => [
+                'type' => Type::string(),
+                'alias' => 'phone_number'
+            ],
+            'isActive' => [
+                'type' => Type::boolean(),
+                'alias' => 'is_active'
             ],
         ];
     }

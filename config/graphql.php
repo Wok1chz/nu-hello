@@ -3,6 +3,8 @@
 declare(strict_types = 1);
 
 use App\GraphQL\Queries\UserQuery;
+use App\GraphQL\Schemas\DefaultSchema;
+use App\GraphQL\Schemas\UserSchema;
 use App\GraphQL\Types\UserType;
 
 return [
@@ -76,27 +78,8 @@ return [
     //  ]
     //
     'schemas' => [
-        'default' => [
-            'query' => [
-                UserQuery::class,
-            ],
-            'mutation' => [
-                // ExampleMutation::class,
-            ],
-            // The types only available in this schema
-            'types' => [
-                UserType::class,
-            ],
-
-            // Laravel HTTP middleware
-            'middleware' => null,
-
-            // Which HTTP methods to support; must be given in UPPERCASE!
-            'method' => ['GET', 'POST'],
-
-            // An array of middlewares, overrides the global ones
-            'execution_middleware' => null,
-        ],
+        'default' => DefaultSchema::class,
+        'user' => UserSchema::class,
     ],
 
     // The global types available to all schemas.
@@ -109,7 +92,7 @@ return [
     // ]
     //
     'types' => [
-        // ExampleType::class,
+        UserType::class
         // ExampleRelationType::class,
         // \Rebing\GraphQL\Support\UploadType::class,
     ],
