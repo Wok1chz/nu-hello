@@ -23,7 +23,8 @@ class User extends Authenticatable
         'password',
         'is_active',
         'phone_number',
-        'birth_date'
+        'birth_date',
+        'is_male'
     ];
 
     /**

@@ -43,6 +43,9 @@ class UserQuery extends Query
             'isActive' => [
                 'type' => Type::boolean(),
             ],
+            'isMale' => [
+                'type' => Type::boolean()
+            ]
         ];
     }
 
@@ -60,6 +63,10 @@ class UserQuery extends Query
 
         if (isset($args['isActive'])) {
             $query->where('is_active' , $args['isActive'])->get();
+        }
+
+        if (isset($args['isMale'])) {
+            $query->where('is_male' , $args['isMale'])->get();
         }
 
         return $query->get();

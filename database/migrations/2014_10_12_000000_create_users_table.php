@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phone_number')->unique()->nullable();
 
             $table->date('birth_date')->nullable();
+            $table->boolean('is_male');
 
             $table->boolean('is_active');
 

@@ -39,6 +39,10 @@ class UserType extends GraphQLType
                 'type' => Type::boolean(),
                 'alias' => 'is_active'
             ],
+            'isMale' => [
+                'type' => Type::boolean(),
+                'alias' => 'is_male'
+            ]
         ];
     }
 }

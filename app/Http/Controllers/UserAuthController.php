@@ -30,13 +30,15 @@ class UserAuthController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6',
+                'is_male' => 'required|boolean'
             ]);
             DB::beginTransaction();
             User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
-                'is_active' => true
+                'is_active' => true,
+                'is_male' => $data['is_male']
             ]);
 
             $client = Client::where('password_client', 1)->first();
