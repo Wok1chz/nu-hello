@@ -45,13 +45,24 @@ class UserQuery extends Query
             ],
             'isMale' => [
                 'type' => Type::boolean()
+            ],
+            'appearance' => [
+                'type' => GraphQL::type('Appearance')
             ]
         ];
     }
 
-    public function resolve($root, array $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields): Collection
+    public function resolve($root, array $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
     {
         $query = User::query();
+
+        $fields = $getSelectFields();
+        $select = $fields->getSelect();
+        $with = $fields->getRelations();
+
+
+        $query->select($select)
+              ->with($with);
 
         if (isset($args['id'])) {
             $query->where('id' , $args['id']);

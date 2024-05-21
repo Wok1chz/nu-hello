@@ -4,7 +4,7 @@ SHELL=/bin/bash -e
 
 -include .env
 
-build-project: run composer-install mig-up key-generate
+build-project: run composer-install mig-up key-generate passport-install
 
 run: ## Запустить проект
 	@docker compose up -d
@@ -29,3 +29,6 @@ mig-seed:
 
 key-generate:
 	@docker compose exec -it app php artisan key:generate
+
+passport-install:
+	@docker compose exec -it app php artisan passport:install

@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\GraphQL\Types;
 
+use App\Models\Appearance;
 use App\Models\User;
+use Rebing\GraphQL\Support\Facades\GraphQL;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Type as GraphQLType;
 
@@ -42,6 +44,9 @@ class UserType extends GraphQLType
             'isMale' => [
                 'type' => Type::boolean(),
                 'alias' => 'is_male'
+            ],
+            'appearance' => [
+                'type' => GraphQL::type('Appearance')
             ]
         ];
     }

@@ -5,6 +5,7 @@ declare(strict_types = 1);
 use App\GraphQL\Queries\UserQuery;
 use App\GraphQL\Schemas\DefaultSchema;
 use App\GraphQL\Schemas\UserSchema;
+use App\GraphQL\Types\AppearanceType;
 use App\GraphQL\Types\UserType;
 
 return [
@@ -92,7 +93,8 @@ return [
     // ]
     //
     'types' => [
-        UserType::class
+        UserType::class,
+        AppearanceType::class
         // ExampleRelationType::class,
         // \Rebing\GraphQL\Support\UploadType::class,
     ],
