@@ -21,6 +21,8 @@ return new class extends Migration
             $table->date('birth_date')->nullable();
             $table->boolean('is_male');
 
+            $table->text('about')->nullable();
+
             $table->boolean('is_active');
 
             $table->timestamp('email_verified_at')->nullable();
