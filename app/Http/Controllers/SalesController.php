@@ -12,7 +12,7 @@ class SalesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): JsonResponse
     {
         return new JsonResponse((new ServicesSalesService())->getActiveSales(), JsonResponse::HTTP_OK);
     }
