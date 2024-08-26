@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sales;
+use App\Services\SalesService as ServicesSalesService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class SalesController extends Controller
@@ -12,7 +14,7 @@ class SalesController extends Controller
      */
     public function index()
     {
-        //
+        return new JsonResponse((new ServicesSalesService())->getActiveSales(), JsonResponse::HTTP_OK);
     }
 
     /**
