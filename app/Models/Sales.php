@@ -10,6 +10,15 @@ use Illuminate\Database\Eloquent\Model;
 class Sales extends Model
 {
     use HasFactory;
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'title', 'description', 
+        'start_date', 'end_date'
+    ];
 
     public function scopeActive(Builder $query): void
     {

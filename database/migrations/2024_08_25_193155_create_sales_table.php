@@ -17,9 +17,9 @@ return new class extends Migration
 
             $table->string('title');
             $table->text('description');
-            $table->datetime('start_date')->nullable();
+            $table->datetime('start_date');
             $table->datetime('end_date')->nullable();
-            $table->string('img_src');
+            $table->string('img_src')->nullable();
         });
     }
 

@@ -2,12 +2,22 @@
 namespace App\Services;
 
 use App\Repositories\SalesRepository;
+use App\Models\Sales;
 use Illuminate\Database\Eloquent\Collection;
 
 class SalesService {
+
+    public function __construct(
+        protected SalesRepository $repository,
+    ) {}
     
     public function getActiveSales(): Collection
     {
-        return (new SalesRepository())->getActiveSales();
+        return $this->repository->getActiveSales();
+    }
+
+    public function createSale(array $data): Sales
+    {
+        return $this->repository->createSale($data);
     }
 }
