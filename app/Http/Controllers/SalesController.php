@@ -41,17 +41,13 @@ class SalesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Sales $sales)
+    public function show(int $id)
     {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Sales $sales)
-    {
-        //
+        try {
+            return new JsonResponse($this->service->findById($id), Response::HTTP_OK);
+        } catch (Exception $e) {
+            return new JsonResponse(null, Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 
     /**

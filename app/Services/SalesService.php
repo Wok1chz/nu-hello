@@ -20,4 +20,9 @@ class SalesService {
     {
         return $this->repository->createSale($data);
     }
+
+    public function findById(int $id)
+    {
+        return $this->repository->findById($id);
+    }
 }

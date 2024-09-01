@@ -16,4 +16,9 @@ class SalesRepository {
     {
         return Sales::create($data);
     }
+
+    public function findById(int $id): Collection
+    {
+        return Sales::where('id', $id)->get();
+    }
 }
